@@ -1,15 +1,15 @@
 package soundkit
 
 import (
-	"errors"
 	"fmt"
 	"math"
+	"github.com/quabynahdavis/soundkit/soundkit"
 )
 
 // FrequencyToCents converts a frequency ratio to cents.
 func FrequencyToCents(freq1, freq2 float64) (float64, error) {
 	if freq1 <= 0 || freq2 <= 0 {
-		return 0, fmt.Errorf("%w: frequencies must be positive", ErrInvalidFrequency)
+		return 0, fmt.Errorf("%w: frequencies must be positive", soundkit.ErrInvalidFrequency())
 	}
 	return 1200 * math.Log2(freq2/freq1), nil
 }
@@ -22,7 +22,7 @@ func CentsToRatio(cents float64) float64 {
 // RatioToCents converts a frequency ratio to cents.
 func RatioToCents(ratio float64) (float64, error) {
 	if ratio <= 0 {
-		return 0, fmt.Errorf("%w: ratio must be positive", ErrInvalidFrequency)
+		return 0, fmt.Errorf("%w: ratio must be positive", soundkit.ErrInvalidFrequency())
 	}
 	return 1200 * math.Log2(ratio), nil
 }
@@ -35,7 +35,7 @@ func SemitonesToRatio(semitones float64) float64 {
 // RatioToSemitones converts a frequency ratio to semitones.
 func RatioToSemitones(ratio float64) (float64, error) {
 	if ratio <= 0 {
-		return 0, fmt.Errorf("%w: ratio must be positive", ErrInvalidFrequency)
+		return 0, fmt.Errorf("%w: ratio must be positive", soundkit.ErrInvalidFrequency())
 	}
 	return 12 * math.Log2(ratio), nil
 }
@@ -44,7 +44,7 @@ func RatioToSemitones(ratio float64) (float64, error) {
 // Note: Go doesn't support default arguments, so you must explicitly pass the reference pitch.
 func NormalizeFrequency(frequency, reference float64) (float64, error) {
 	if frequency <= 0 {
-		return 0, fmt.Errorf("%w: frequency must be positive", ErrInvalidFrequency)
+		return 0, fmt.Errorf("%w: frequency must be positive", soundkit.ErrInvalidFrequency())
 	}
 
 	// In Go, math.Round returns a float64 directly
