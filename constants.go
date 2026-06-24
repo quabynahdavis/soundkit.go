@@ -1,4 +1,4 @@
-package constants
+package soundkit
 
 // Constants are strictly for basic scalar types (numbers, strings, booleans)
 const CONCERT_PITCH = 440 // Key A
