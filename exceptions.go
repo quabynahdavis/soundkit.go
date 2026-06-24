@@ -1,17 +1,26 @@
 package soundkit
 
-import "errors"
+import (
+	"github.com/quabynahdavis/soundkit.go/core"
+	"github.com/quabynahdavis/soundkit.go/utils"
+)
 
-// SoundKitError acts as your base sentinel string error 
-// if you want to check for general package errors.
-var ErrSoundKit = errors.New("soundkit error")
-
-// Specific, granular error values that your functions can return.
-// By Go convention, error variables are prefixed with "Err".
 var (
-	ErrInvalidNote      = errors.New("invalid note name provided")
-	ErrInvalidOctave    = errors.New("octave is out of valid range")
-	ErrInvalidFrequency = errors.New("invalid frequency is provided")
-	ErrInvalidChord     = errors.New("invalid chord type is provided")
-	ErrInvalidScale     = errors.New("invalid scale type is provided")
+	// ErrSoundKit is the base sentinel error for all SoundKit errors.
+	ErrSoundKit = core.ErrSoundKit
+
+	// ErrInvalidNote is raised when an invalid note name is provided.
+	ErrInvalidNote = core.ErrInvalidNote
+
+	// ErrInvalidOctave is raised when the octave is out of valid range.
+	ErrInvalidOctave = core.ErrInvalidOctave
+
+	// ErrInvalidFrequency is raised when an invalid frequency is provided.
+	ErrInvalidFrequency = utils.ErrInvalidFrequency
+
+	// ErrInvalidChord is raised when an invalid chord type is provided.
+	ErrInvalidChord = core.ErrInvalidChord
+
+	// ErrInvalidScale is raised when an invalid scale type is provided.
+	ErrInvalidScale = core.ErrInvalidScale
 )
