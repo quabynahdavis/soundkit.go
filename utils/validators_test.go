@@ -109,7 +109,7 @@ func TestNormalizeNoteName(t *testing.T) {
 		{"db4", "db4", "DB4"},
 		{"C ♯4", "C ♯4", "C#4"},
 		{"C ♭4", "C ♭4", "CB4"},
-		{"C-4", "C-4", "C-4"},
+		{"C-4", "C-4", "C4"},
 		{"C 4", "C 4", "C4"},
 	}
 

@@ -36,6 +36,7 @@ func ValidateOctave(octave int) bool {
 // NormalizeNoteName converts various note formats to standard format.
 func NormalizeNoteName(noteName string) string {
 	res := strings.ToUpper(noteName)
+	res = strings.ReplaceAll(res, "-", "")
 	res = strings.ReplaceAll(res, " ", "")
 	res = strings.ReplaceAll(res, "♭", "B")
 	res = strings.ReplaceAll(res, "♯", "#")
